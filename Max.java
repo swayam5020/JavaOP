@@ -1,28 +1,22 @@
-//Write a Java program to find maximum of three numbers. (Use constructor, Use member function).
 import java.util.*;
-public class Max {
-    int a,b,c;
-    Max(int x, int y, int z){
-        a=x;
-        b=y;
-        c=z;
-    }
-    void check(){
-        int max=a;
-        if(b>max)
-            max=b;
-        if(c>max)
-            max=c;
-        System.out.println(max+" is the Max number. ");
-    }
-    public static void main(String args[]){
+class Max
+{
+    public static void main(String args[])
+    {
+        Max ob=new Max();
         Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the 3 numbers: ");
-        int x=sc.nextInt();
-        int y=sc.nextInt();
-        int z=sc.nextInt();
-        Max obj= new Max(x,y,z);
-        obj.check();
-        sc.close();
+        System.out.println("Enter a = ");
+        double a=sc.nextInt();
+        System.out.println("Enter b = ");
+        double b=sc.nextInt();
+        double max1;
+        max1=ob.max(a,b);
+        System.out.print("Max ="+max1);
+    }
+
+    double max(double a, double b)
+    {
+        double max=Math.max(a,b);
+        return max;
     }
 }
