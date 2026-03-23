@@ -1,20 +1,34 @@
-//1.	Write a Java program to calculate factorial of a number. (Input a number as a constant value, use member function for factorial computation and return the value).
-import java.util.*;
-class Factorial{
-    void Fact(int n){
-        int i=1;
-        while(n>0){
-            i*=n;
-            n--;
-        }
-        System.out.println("Factorial = "+i);
+class Factorial 
+{
+    public static void main(int a)
+    {
+        
+        Factorial ob=new Factorial();
+        
+       int f=ob.factorial(a);
+    System.out.println("Factorial of a="+f);
+    
     }
-    public static void main(String args[]){
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter the number ");
-        int x=sc.nextInt();
-        Factorial obj=new Factorial();
-        obj.Fact(x);
-        sc.close();
+    int factorial(int n)
+    {
+        int f=1;//f=4 
+        for(int i=1; i <=n; i++)
+        
+        f=f*i;//4*1=4 4*2=8 8*3=24 24*4=96
+        return f;
+        
     }
 }
+    
+       
+           
+           
+           
+        
+        
+        
+    
+     
+        
+    
+    
