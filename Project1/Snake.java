@@ -1,12 +1,14 @@
-import java.applet.*;
+import javax.swing.*;
 
 import java.awt.*;
 
 import java.awt.event.*;
 
-public  class Snake extends Applet implements KeyListener, Runnable
+public class Snake extends JPanel implements KeyListener, Runnable
 
 {
+
+    JFrame frame;
 
     Color colors[]={Color.BLACK, Color.RED, Color.BLUE, Color.YELLOW, Color.WHITE};
 
@@ -105,27 +107,21 @@ public  class Snake extends Applet implements KeyListener, Runnable
     }
 
     public void init()
-
     {
-
         setBackground(Color.GREEN);
-
+        setFocusable(true);
         addKeyListener(this);
 
-        screenWidth = getWidth()-cwidth;
-
-        screenHeight = getHeight()-cheight;
+        screenWidth = 800 - cwidth;
+        screenHeight = 600 - cheight;
 
         gameStatus = GameStatus.IDLE;
-
         resetGame();
-
     }
 
-    public void paint(Graphics g)
-
+    public void paintComponent(Graphics g)
     {
-
+        super.paintComponent(g);
         if(gameStatus == GameStatus.IDLE)
 
         {
@@ -440,9 +436,8 @@ public  class Snake extends Applet implements KeyListener, Runnable
 
              
 
-                screenWidth = getWidth()-cwidth;
-
-                screenHeight = getHeight()-cheight;
+                screenWidth = getWidth() - cwidth;
+                screenHeight = getHeight() - cheight;
 
                 repaint();
 
@@ -472,7 +467,17 @@ public  class Snake extends Applet implements KeyListener, Runnable
 
     }
 
+    public static void main(String[] args)
+    {
+        JFrame frame = new JFrame("Snake Game");
+        Snake game = new Snake();
+
+        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(game);
+        frame.setVisible(true);
+
+        game.init();
+    }
+
 }
-
-
-
